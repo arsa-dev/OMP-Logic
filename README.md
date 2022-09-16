@@ -4,14 +4,10 @@
 
 Tengo conocimiento personal de un problema que se plantea en las empresas donde existe una cadena de producción en la que cada uno de los operarios se encarga de unas determinadas operaciones.
 
+_Determinar si hay un cuello de botella en la producción._
+Es importante conocer el estado de fabricación de los distintos productos en una orden de fabricación, de este modo, la empresa puede tener capacidad de respuesta ante cuellos de botella en una operación concreta, por ejemplo asignando a un segundo operario en esa operación, y así tener una mayor capacidad de respuesta. Esto se soluciona por medio de la solución permitiendo la consulta de los paquetes de operaciones aún no marcadas como realizadas, así como la aplicación implementará una lógica para determinar automáticamente aquellas órdenes de fabricación no están desarrollándose a un ritmo adecuado.
 
-
-_Problema 1. Determinar la rentabilidad de un trabajador._
-Los productos tienen un coste total, el cual se divide en un precio específico por cada una de las operaciones que se deben de realizar para fabricarlo. El precio que supone el tiempo que tarda el trabajador en realizar dicha operación nunca puede ser mayor al precio determiando de la operación, ya que si así fuera ese trabajador estaría generando pérdidas a la empresa.
-Esto se soluciona por medio de la aplicación simplemente consultando las operaciones marcadas como realizadas por el operario en ese día.
-
-_Problema 2. Determinar si hay un cuello de botella en la producción._
-Es importante conocer el estado de fabricación de los distintos productos en una orden de fabricación, de este modo, la empresa puede tener capacidad de respuesta ante cuellos de botella en una operación concreta, por ejemplo asignando a un segundo operario en esa operación, y así tener una mayor capacidad de respuesta. Esto se soluciona por medio de la solución permitiendo la consulta de los paquetes de operaciones aún no marcadas como realizadas
+Además este es un problema que tiene cualquier empresa de fabricación por lo que la arquitectura de despliegue en la nube es algo que nos permitirá extender el producto a otras empresas a un coste mucho menor.
 
 ## Objetos de negocio
 
