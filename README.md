@@ -1,5 +1,9 @@
 # [IV-22-23] Antonio Ramón Sánchez Morales
 
+## Documentación sobre la implementación
+ - [Historias de usuario](docs/1-user-stories.md)
+ - [Milestones](docs/2-milestones.md)
+
 ## Problemas planteados
 
 Tengo conocimiento personal de un problema que se plantea en las empresas donde existe una cadena de producción en la que cada uno de los operarios se encarga de unas determinadas operaciones.
