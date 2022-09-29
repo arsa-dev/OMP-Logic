@@ -18,8 +18,3 @@ Además este es un problema que tiene cualquier empresa de fabricación por lo q
 - Operaciones. Define las acciones que realizan los operarios.
 - Modelos. Conjunto de operaciones necesarias para la fabricación de un modelo concreto, dos modelos distintos pueden requerir de una misma operación.
 - Órdenes de fabricación. Es un modelo que contiene uno o más paquetes de modelos y el número de unidades por modelo que deben de fabricarse
-
-## Configuración inicial objetivo 0
-
-- [Configuración claves SSH y GPG](docs/20220915_11-07-25_AR_SSH%20and%20GPG%20keys.jpg)
-- [Configuración repositorio local](docs/20220915_11-10-56_AR_git-config.jpg)
