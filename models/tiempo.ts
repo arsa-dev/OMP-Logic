@@ -70,7 +70,3 @@ export class Tiempo{
     }
 
 }
-
-
-let prueba = new Tiempo(20.6,213.5,597);
-console.log(prueba);

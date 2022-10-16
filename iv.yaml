@@ -1,0 +1,14 @@
+lenguaje: TypeScript
+
+Objeto valor: 
+  # Representa al tiempo, al que no se le aplica directamente la lógica de negocio
+  - models/tiempo.ts
+  # No se le aplica la lógica de negocio a una operacion particular, por lo tanto, se trata de un objeto valor
+  - models/operacion.ts
+
+Entidad:
+  # Conjunto de operaciones para la fabricación de un modelo, es utilizada en la lógica de negocio para el análisis de posibles cuellos de botella
+  - models/modelo.ts
+
+  # Conjunto de modelos con el número de unidades asociado, se le aplica la lógica de negocio para determinar el cuello de botella
+  - models/orden_de_fabricacion.ts
