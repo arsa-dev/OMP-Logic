@@ -15,13 +15,13 @@ export class Tiempo{
         let horas_sd = horas - horas%1;
 
         //Horas sobrantes, por las imprecisiones de js, pongo la precisión a 2
-        let sobras = (horas%1).toFixed(2);
+        let sobras = Math.round( (horas%1) * 1e2)/1e2;
 
         //Sumamos los minutos con las horas sobrantes
         let minutos_sd = minutos + 60*sobras;
 
         //Minutos sobrantes
-        sobras = (minutos_sd%1).toFixed(2);
+        sobras = Math.round( (minutos_sd%1) * 1e2)/1e2;
 
         //Minutos sin decimales
         minutos_sd -= sobras;
@@ -62,7 +62,7 @@ export class Tiempo{
         }
     }
 
-    sumar(sumando:tiempo){
+    sumar(sumando:Tiempo){
         this.hora += sumando.hora;
         this.minuto += sumando.minuto;
         this.segundo += sumando.segundo;
@@ -70,3 +70,7 @@ export class Tiempo{
     }
 
 }
+
+
+let prueba = new Tiempo(20.6,213.5,597);
+console.log(prueba);
