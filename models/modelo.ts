@@ -1,4 +1,3 @@
-import { Tiempo } from "./tiempo.ts";
 import { Operacion } from "./operacion.ts";
 
 //Conjunto de operaciones necesarias para la fabricación de un modelo concreto
@@ -10,17 +9,17 @@ export class Modelo{
     //Conjunto de operaciones
     operaciones: Array<Operacion>;
 
-    //Duracion estimada para la fabricación si solo hay un trabajador
-    duracionEstimadaLineal: Tiempo;
+    //Duracion estimada expresada en segundos para la fabricación si solo hay un trabajador
+    duracionEstimadaLineal: number;
 
     constructor(conceptoParametro:string, operacionesParametro: Array<Operacion>){
         this.concepto = conceptoParametro;
         this.operaciones = operacionesParametro;
-        this.duracionEstimadaLineal = new Tiempo();
+        this.duracionEstimadaLineal = 0;
 
         //Sumamos la duracion estimada de todas las operaciones
         operacionesParametro.forEach(operacionParametro => {
-            this.duracionEstimadaLineal.sumar(operacionParametro.duracionEstimada)
+            this.duracionEstimadaLineal += operacionParametro.duracionEstimada;
         });
     }
 
