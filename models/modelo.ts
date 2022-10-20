@@ -11,16 +11,16 @@ export class Modelo{
     operaciones: Array<Operacion>;
 
     //Duracion estimada para la fabricación si solo hay un trabajador
-    duracion_estimada_lineal: Tiempo;
+    duracionEstimadaLineal: Tiempo;
 
-    constructor(concepto:string, operaciones: Array<Operacion>){
-        this.concepto = concepto;
-        this.operaciones = operaciones;
-        this.duracion_estimada_lineal = new Tiempo();
+    constructor(conceptoParametro:string, operacionesParametro: Array<Operacion>){
+        this.concepto = conceptoParametro;
+        this.operaciones = operacionesParametro;
+        this.duracionEstimadaLineal = new Tiempo();
 
         //Sumamos la duracion estimada de todas las operaciones
-        operaciones.forEach(operacion => {
-            this.duracion_estimada_lineal.sumar(operacion.duracion_estimada)
+        operacionesParametro.forEach(operacionParametro => {
+            this.duracionEstimadaLineal.sumar(operacionParametro.duracionEstimada)
         });
     }
 

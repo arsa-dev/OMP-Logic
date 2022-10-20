@@ -6,7 +6,7 @@ export class OrdenDeFabricacion{
     //Conjunto de modelos con los números de unidades
     modelos: Array<[Modelo, number]>;
 
-    constructor(modelos:Array<[Modelo, number]>){
-        this.modelos = modelos;
+    constructor(modelosParametro:Array<[Modelo, number]>){
+        this.modelos = modelosParametro;
     }
 }

@@ -7,11 +7,11 @@ export class Operacion{
     accion: string;
 
     //Duracion estimada de la operacion
-    duracion_estimada: Tiempo;
+    duracionEstimada: Tiempo;
 
-    constructor(accion:string, duracion_estimada:Tiempo){
-        this.accion = accion;
-        this.duracion_estimada = duracion_estimada;
+    constructor(accionParametro:string, duracionEstimadaParametro:Tiempo){
+        this.accion = accionParametro;
+        this.duracionEstimada = duracionEstimadaParametro;
     }
     
 }
