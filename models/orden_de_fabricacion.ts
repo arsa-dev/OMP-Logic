@@ -1,4 +1,4 @@
-import { ModeloFabricacion } from "./modelo_fabricacion.ts";
+import { ModeloFabricacion } from "./modelo_fabricacion";
 
 //Contiene uno o más paquetes de modelos y el número de unidades por modelo que deben fabricarse
 export class OrdenDeFabricacion{

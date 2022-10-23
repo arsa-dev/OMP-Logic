@@ -1,4 +1,4 @@
-import { Operacion } from "./operacion.ts";
+import { Operacion } from "./operacion";
 
 //Conjunto de operaciones necesarias para la fabricación de un modelo concreto
 export class Modelo{
