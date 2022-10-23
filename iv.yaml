@@ -1,0 +1,15 @@
+lenguaje: TypeScript
+
+objeto valor: 
+  # No se le aplica la lógica de negocio a una operacion particular, por lo tanto, se trata de un objeto valor
+  - models/operacion.ts
+
+  # Objeto valor intermedio asociando cada modelo con las unidades que deben fabricarse
+  - models/modelo_fabricacion.ts
+
+entidad:
+  # Conjunto de operaciones para la fabricación de un modelo, es utilizada en la lógica de negocio para el análisis de posibles cuellos de botella
+  - models/modelo.ts
+
+  # Conjunto de modelos con el número de unidades asociado, se le aplica la lógica de negocio para determinar el cuello de botella
+  - models/orden_de_fabricacion.ts
