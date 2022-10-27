@@ -19,3 +19,7 @@ bun run lint:fix
  - [Milestones](docs/2-milestones.md)
  - [Problemas planteados](docs/3-goals-to-solve.md)
  - [Objetos de negocio](docs/4-bussiness-objects.md)
+
+## Documentación sobre la toma de decisiones
+ - [Gestor de dependencias](docs/decision-making/1-package-manager.md)
+ - [Gestor de tareas](docs/decision-making/2-task-runners.md)
