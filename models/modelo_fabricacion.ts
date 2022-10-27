@@ -1,18 +1,15 @@
-import {Modelo} from "./modelo"
+import { Modelo } from './modelo'
 
-//Objeto valor intermedio asociando cada modelo con las unidades que deben fabricarse
-export class ModeloFabricacion{
+// Objeto valor intermedio asociando cada modelo con las unidades que deben fabricarse
+export class ModeloFabricacion {
+  // Modelo asociado
+  modelo: Modelo
 
-    //Modelo asociado
-    modelo: Modelo;
+  // Cantidad asociado al modelo
+  cantidad: number
 
-    //Cantidad asociado al modelo
-    cantidad: number;
-
-    constructor(modeloParametro:Modelo, cantidadParametro:number){
-        this.modelo = modeloParametro;
-        this.cantidad = cantidadParametro;
-    }
-
-
+  constructor (modeloParametro: Modelo, cantidadParametro: number) {
+    this.modelo = modeloParametro
+    this.cantidad = cantidadParametro
+  }
 }

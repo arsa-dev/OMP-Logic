@@ -1,6 +1,6 @@
 lenguaje: TypeScript
 
-objeto valor: 
+objeto valor:
   # No se le aplica la lógica de negocio a una operacion particular, por lo tanto, se trata de un objeto valor
   - models/operacion.ts
 
@@ -13,3 +13,7 @@ entidad:
 
   # Conjunto de modelos con el número de unidades asociado, se le aplica la lógica de negocio para determinar el cuello de botella
   - models/orden_de_fabricacion.ts
+
+automatizar:
+  fichero: package.json
+  orden: bun run
