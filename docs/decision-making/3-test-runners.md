@@ -6,4 +6,5 @@ Algunos test runners:
 - _Mocha_ ❤️: Mocha es muy extensible y flexible ya que viene sin librería de aserciones ni mocking, gracias a ello el desarrollador puede elegir cuál utilizar, además está bastante extendido y muchos CI runners tienen soporte para el mismo.
 
 Algunas librerías de aserciones:
-Entre las que podemos observar en la documentación de mocha (https://mochajs.org/#assertions) creo que la más interesante sería chai ya que está muy extendida y permite tres estilos de aserciones que puede dar más juego y facilidad en el desarrollo de tests.
+- _Expect.JS_: Librería simple de aserciones basada en should.js
+- _Chai_ ❤️: Está muy extendida con mantenimiento reciente y permite tres estilos de aserciones (expect(), assert() y should) que puede dar más juego y facilidad en el desarrollo de tests. Además tiene mejor soporte para aserciones de promesas.
