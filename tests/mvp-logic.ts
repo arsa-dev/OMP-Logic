@@ -2,6 +2,9 @@ import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import { Operacion } from '../src/models/operacion';
 import { Modelo } from '../src/models/modelo';
+import { PaqueteFabricacion } from '../src/models/paquete_fabricacion';
+import { OrdenDeFabricacion } from '../src/models/orden_de_fabricacion';
+import { checkManufacturingOrder } from '../src/logic/check-problems';
 
 describe('Validate logic MVP', () => {
   it('Checking basic object constructors', () => {
@@ -18,5 +21,61 @@ describe('Validate logic MVP', () => {
     expect(modelo.operaciones).to.include(operacion);
     expect(modelo.operaciones).to.include(operacion2);
     expect(modelo.duracionEstimadaLineal).to.be.equal(30 + 15);
+  });
+
+  it('Overall time exceded without package time exceded', () => {
+    const modelo = new Modelo('camisa test', [
+      new Operacion('coser bolsillo', 30),
+      new Operacion('coser botones', 15)
+    ]);
+    const paquete = new PaqueteFabricacion(modelo, 50, new Date());
+    const paquete2 = new PaqueteFabricacion(modelo, 100);
+    const orden = new OrdenDeFabricacion([paquete, paquete2], new Date(0));
+
+    const ret = checkManufacturingOrder(orden);
+    expect(ret).to.have.lengthOf(1);
+    expect(ret[0].code).to.be.equal('overall_time');
+    expect(ret[0].ref).to.be.equal(orden);
+  });
+  it('Package time exceded without overall time exceded', () => {
+    const d = new Date(Date.now() - (46 * 1000) * 50);
+    const modelo = new Modelo('camisa test', [
+      new Operacion('coser bolsillo', 30),
+      new Operacion('coser botones', 15)
+    ]);
+    const paquete = new PaqueteFabricacion(modelo, 50, d);
+    const paquete2 = new PaqueteFabricacion(modelo, 100);
+    const orden = new OrdenDeFabricacion([paquete, paquete2]);
+
+    const ret = checkManufacturingOrder(orden);
+    expect(ret).to.have.lengthOf(1);
+    expect(ret[0].code).to.be.equal('package_time');
+    expect(ret[0].ref).to.be.equal(paquete);
+  });
+  it('Exceded but finished should not return errors', () => {
+    const d = new Date(Date.now() - (46 * 1000) * 50);
+    const modelo = new Modelo('camisa test', [
+      new Operacion('coser bolsillo', 30),
+      new Operacion('coser botones', 15)
+    ]);
+    const paquete = new PaqueteFabricacion(modelo, 50, d, new Date());
+    const paquete2 = new PaqueteFabricacion(modelo, 100);
+    const orden = new OrdenDeFabricacion([paquete, paquete2]);
+
+    const ret = checkManufacturingOrder(orden);
+    expect(ret).to.have.lengthOf(0);
+  });
+  it('In time unfinished should not return errors', () => {
+    const d = new Date(Date.now() - (13 * 1000));
+    const modelo = new Modelo('camisa test', [
+      new Operacion('coser bolsillo', 30),
+      new Operacion('coser botones', 15)
+    ]);
+    const paquete = new PaqueteFabricacion(modelo, 50, d);
+    const paquete2 = new PaqueteFabricacion(modelo, 100, d);
+    const orden = new OrdenDeFabricacion([paquete, paquete2]);
+
+    const ret = checkManufacturingOrder(orden);
+    expect(ret).to.have.lengthOf(0);
   });
 });

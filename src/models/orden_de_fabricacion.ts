@@ -10,12 +10,12 @@ export class OrdenDeFabricacion {
   // Timestamp de finalización de la fabricación
   endDate: Date | null;
 
-  constructor(paquetes: PaqueteFabricacion[]) {
+  constructor(paquetes: PaqueteFabricacion[], startDateOverride?: Date) {
     this.paquetes = paquetes;
-    this.startDate = null;
+    this.startDate = startDateOverride ?? null;
     this.endDate = new Date(0);
     for (const p of paquetes) {
-      if (p.startDate != null && (this.startDate == null || this.startDate > p.startDate)) {
+      if (startDateOverride === undefined && p.startDate != null && (this.startDate == null || this.startDate > p.startDate)) {
         this.startDate = p.startDate;
       }
       if (p.endDate == null) { // Hay al menos algún paquete sin terminar
