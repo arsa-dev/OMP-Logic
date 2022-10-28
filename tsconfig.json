@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext"],
-    "module": "esnext",
-    "target": "esnext",
+    "lib": ["es2020"],
+    "module": "commonjs",
+    "esModuleInterop": true,
     "moduleResolution": "node",
+    "target": "es2018",
 
     "strict": true,
 
@@ -12,5 +13,7 @@
 
     // "bun-types" is the important part
     "types": ["bun-types"]
-  }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "tests/**/*.ts"]
 }

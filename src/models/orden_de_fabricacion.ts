@@ -10,9 +10,22 @@ export class OrdenDeFabricacion {
   // Timestamp de finalización de la fabricación
   endDate: Date | null;
 
-  constructor(paquetes: PaqueteFabricacion[], startDate: Date | null = null, endDate: Date | null = null) {
+  constructor(paquetes: PaqueteFabricacion[]) {
     this.paquetes = paquetes;
-    this.startDate = startDate;
-    this.endDate = endDate;
+    this.startDate = null;
+    this.endDate = new Date(0);
+    for (const p of paquetes) {
+      if (p.startDate != null && (this.startDate == null || this.startDate > p.startDate)) {
+        this.startDate = p.startDate;
+      }
+      if (p.endDate == null) { // Hay al menos algún paquete sin terminar
+        this.endDate = null;
+      } else if (this.endDate != null && this.endDate < p.endDate) { // Nos vamos quedando con la ultima fecha de finalización
+        this.endDate = p.endDate;
+      }
+      if (p.endDate != null && (this.endDate == null || this.endDate < p.endDate)) {
+        this.endDate = p.endDate;
+      }
+    }
   }
 }
