@@ -7,6 +7,11 @@ Para comprobar la sintaxis del código se debe de ejecutar la siguiente orden:
 bun run check
 ```
 
+Para ejecutar los tests se debe de ejecutar la siguiente orden:
+```shell
+bun run test
+```
+
 Para comprobar el formato del código se debe de ejecutar la siguiente orden:
 ```shell
 bun run lint
