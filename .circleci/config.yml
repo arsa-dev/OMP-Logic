@@ -20,13 +20,13 @@ jobs:
       - checkout
       - setup_remote_docker:
           version: 20.10.14
-          docker_layer_caching: true
       - run:
           name: "Test app docker"
           command: |
             docker info
             ls -lah
-            docker run --platform linux -u 1001 -t -v `pwd`:/app/test arsadev/omp-logic:latest
+            docker pull arsadev/omp-logic:latest
+            docker run -u 1001 -t -v `pwd`:/app/test arsadev/omp-logic:latest
 
 workflows:
   test_app:
