@@ -26,7 +26,7 @@ jobs:
           shell: powershell.exe
           command: |
             docker info
-            docker run -u 1001 -t -v `pwd`:/app/test arsadev/omp-logic:latest
+            docker run --platform linux -u 1001 -t -v `pwd`:/app/test arsadev/omp-logic:latest
 
 workflows:
   test_my_app:
