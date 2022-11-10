@@ -15,4 +15,5 @@ RUN chown -R 1001:1001 "/.npm"
 RUN chown -R 1001:1001 /app
 
 # Configure entrypoint
-CMD [ "npm run test" ]
+ENTRYPOINT [ "npm", "run", "test" ]
+
