@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
-  win: circleci/windows@4.1.1
 
 jobs:
   build_and_test_ubuntu:
@@ -14,26 +13,22 @@ jobs:
       - run:
           command: npm run test
           name: Run tests
-  test_docker_windows:
-    executor:
-      name: win/default
-      shell: powershell.exe
+  test_docker:
+    docker:
+      - image: alpine
     steps:
       - checkout
-      - run: systeminfo
+      - setup_remote_docker:
+          version: 20.10.14
+          docker_layer_caching: true
       - run:
-          name: "Check docker"
-          shell: powershell.exe
+          name: "Test app docker"
           command: |
             docker info
             docker run --platform linux -u 1001 -t -v `pwd`:/app/test arsadev/omp-logic:latest
 
 workflows:
-  test_my_app:
+  test_app:
     jobs:
       - build_and_test_ubuntu
-      - test_docker_windows
-        # &:
-        # filters:
-        #   branches:
-        #     only: main # only deploy when on main
+      - test_docker
