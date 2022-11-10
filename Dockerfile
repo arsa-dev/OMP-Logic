@@ -5,15 +5,17 @@ FROM node:latest as final
 RUN mkdir -p /app/test /.npm
 
 WORKDIR /app/test
-COPY --chown=1001 package.json .
 
-RUN npm install && mv node_modules ..
+# Copy package.json to /app folder and install deps there
+COPY --chown=1001 package.json /app
+RUN npm install
+
+# Adjust permissions
 RUN chown -R 1001:1001 "/.npm"
 RUN chown -R 1001:1001 /app
 
+# Configure entrypoint
 RUN echo '#!/bin/sh\n\
-rm -Rf node_modules || echo "Already deleted"\n\
-cp -r ../node_modules .\n\
 npm run test\n\
 \n' > /entrypoint.sh
 RUN chmod +x /entrypoint.sh
