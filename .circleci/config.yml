@@ -5,12 +5,11 @@ orbs:
 jobs:
   build_and_test:
     executor: node/default
-    environment:
-      PARAM_OVERRIDE_COMMAND: npm install
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: npm
+          override-ci-command: npm install
       - run:
           command: npm run test
           name: Run tests
