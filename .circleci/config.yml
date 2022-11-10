@@ -9,6 +9,8 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: npm
+          environment:
+            PARAM_OVERRIDE_COMMAND: npm install
       - run:
           command: npm run test
           name: Run tests
