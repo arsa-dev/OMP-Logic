@@ -2,8 +2,6 @@ name: Create projects test image
 
 on:
   push:
-    path-ignores:
-      - 'docs/**'
     paths:
       - 'package.json'
       - 'package-lock.json'
