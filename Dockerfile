@@ -15,10 +15,4 @@ RUN chown -R 1001:1001 "/.npm"
 RUN chown -R 1001:1001 /app
 
 # Configure entrypoint
-RUN echo '#!/bin/sh\n\
-npm run test\n\
-\n' > /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-ENTRYPOINT [ "/bin/bash" ]
-CMD [ "/entrypoint.sh" ]
+CMD [ "npm run test" ]
