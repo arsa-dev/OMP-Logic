@@ -1,5 +1,6 @@
 FROM node:latest as final
 
+
 # Create app and log directories
 RUN mkdir -p /app/test /.npm
 
