@@ -25,6 +25,7 @@ jobs:
           name: "Test app docker"
           command: |
             docker info
+            ls -lah
             docker run --platform linux -u 1001 -t -v `pwd`:/app/test arsadev/omp-logic:latest
 
 workflows:
