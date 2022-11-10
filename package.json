@@ -5,7 +5,7 @@
     "check": "bun run lint",
     "lint": "eslint .",
     "lint:fix": "bun run lint -- --fix",
-    "test": "ls -lah && mocha --require ts-node/register ./tests/*.ts"
+    "test": "mocha --require ts-node/register ./tests/*.ts"
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",
