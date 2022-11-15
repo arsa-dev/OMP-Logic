@@ -1,0 +1,32 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.0.2
+
+jobs:
+  build_and_test_ubuntu:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+          override-ci-command: npm install
+      - run:
+          command: npm run test
+          name: Run tests
+  test_docker:
+    machine:
+      image: ubuntu-2004:202010-01
+    steps:
+      - checkout
+      - run:
+          name: "Test app docker"
+          command: |
+            docker info
+            docker pull arsadev/omp-logic:latest
+            docker run -u 1001 -t -v `pwd`:/app/test arsadev/omp-logic:latest
+
+workflows:
+  test_app:
+    jobs:
+      - build_and_test_ubuntu
+      - test_docker
