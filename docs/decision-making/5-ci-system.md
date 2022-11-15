@@ -2,7 +2,7 @@
 
 Criterios para elegir el sistema de integración continua:
 - _Compatibilidad con Github Checks API_
-- _Ofrecido como servicio SasS_
+- _Ofrecido como servicio SaaS_
 - _Gratuito para proyectos públicos_
 
 Algunas opciones:
