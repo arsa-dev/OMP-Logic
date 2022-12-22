@@ -1,6 +1,6 @@
 import { AppInitialization } from '../logic/app-init';
 
-AppInitialization.instance();
+const logger = AppInitialization.instance().getLogger('models.operacion');
 
 // Define las acciones que realizan los operarios
 export class Operacion {
@@ -13,5 +13,6 @@ export class Operacion {
   constructor(accion: string, duracionEstimada: number) {
     this.accion = accion;
     this.duracionEstimada = duracionEstimada;
+    logger.debug('Created model' + JSON.stringify(this));
   }
 }
