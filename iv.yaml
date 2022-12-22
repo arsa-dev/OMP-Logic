@@ -23,3 +23,5 @@ test: tests/mvp-logic.ts
 CI: .circleci/config.yml
 
 configuracion: .env
+
+framework: loopback
