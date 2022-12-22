@@ -1,6 +1,5 @@
 {
   "name": "omp-logic",
-  "module": "index.ts",
   "scripts": {
     "check": "bun run lint",
     "lint": "eslint .",
