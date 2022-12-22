@@ -1,4 +1,7 @@
 import { PaqueteFabricacion } from './paquete_fabricacion';
+import { AppInitialization } from '../logic/app-init';
+
+AppInitialization.instance();
 
 // Contiene uno o más paquetes de modelos y el número de unidades por modelo que deben fabricarse
 export class OrdenDeFabricacion {

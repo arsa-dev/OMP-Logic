@@ -1,5 +1,8 @@
 import { OrdenDeFabricacion } from '../models/orden_de_fabricacion';
 import { PaqueteFabricacion } from '../models/paquete_fabricacion';
+import { AppInitialization } from './app-init';
+
+AppInitialization.instance();
 
 export interface ManufacturingProblem {
   code: 'overall_time' | 'package_time'

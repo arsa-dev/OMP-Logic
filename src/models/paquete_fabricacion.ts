@@ -1,4 +1,7 @@
 import { Modelo } from './modelo';
+import { AppInitialization } from '../logic/app-init';
+
+AppInitialization.instance();
 
 // Objeto valor intermedio asociando cada modelo con las unidades que deben fabricarse
 export class PaqueteFabricacion {

@@ -1,4 +1,7 @@
+import { AppInitialization } from '../logic/app-init';
 import { Operacion } from './operacion';
+
+AppInitialization.instance();
 
 // Conjunto de operaciones necesarias para la fabricación de un modelo concreto
 export class Modelo {

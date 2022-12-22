@@ -1,3 +1,7 @@
+import { AppInitialization } from '../logic/app-init';
+
+AppInitialization.instance();
+
 // Define las acciones que realizan los operarios
 export class Operacion {
   // Descripcion de la accion que un operario debe llevar a cabo
