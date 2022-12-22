@@ -1,19 +1,10 @@
 {
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "@loopback/build/config/tsconfig.common.json",
   "compilerOptions": {
-    "lib": ["es2020"],
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "target": "es2018",
-
-    "strict": true,
-
-    // so that if your project isn't using TypeScript, it still has autocomplete
-    "allowJs": true,
-
-    // "bun-types" is the important part
-    "types": ["bun-types"]
+    "outDir": "dist",
+    "rootDir": "src",
+    "esModuleInterop": true
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "tests/**/*.ts"]
+  "include": ["src"]
 }
