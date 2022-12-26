@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
-/* eslint-disable @typescript-eslint/no-extraneous-class */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as dotenv from 'dotenv';
 import winston from 'winston';
 
@@ -17,22 +16,28 @@ export class AppInitialization {
   private constructor() {
     dotenv.config();
 
-    const { combine, timestamp, printf, colorize, align } = winston.format;
+    const {combine, timestamp, printf, colorize, align} = winston.format;
     this.logger = winston.createLogger({
       level: process.env.LOG_LEVEL ?? 'info',
       format: combine(
-        colorize({ all: process.env.LOG_OUTPUT_COLORIZE !== 'false' }),
+        colorize({all: process.env.LOG_OUTPUT_COLORIZE !== 'false'}),
         timestamp({
-          format: process.env.LOG_TIMESTAMP_FORMAT ?? 'YYYY-MM-DD hh:mm:ss.SSS A'
+          format:
+            process.env.LOG_TIMESTAMP_FORMAT ?? 'YYYY-MM-DD hh:mm:ss.SSS A',
         }),
         align(),
-        printf((info) => `[${info.timestamp}] ${info.level}-${info.scope ?? 'default'}: ${info.message}`)
+        printf(
+          (info: any) =>
+            `[${info.timestamp}] ${info.level}-${info.scope ?? 'default'}: ${
+              info.message
+            }`,
+        ),
       ),
-      transports: [new winston.transports.Console()]
+      transports: [new winston.transports.Console()],
     });
   }
 
   public getLogger(scope: string): winston.Logger {
-    return this.logger.child({ scope });
+    return this.logger.child({scope});
   }
 }
