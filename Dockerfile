@@ -1,5 +1,4 @@
-FROM node:latest as final
-
+FROM node:latest
 
 # Create app and log directories
 RUN mkdir -p /app/test /.npm
@@ -15,5 +14,4 @@ RUN chown -R 1001:1001 "/.npm"
 RUN chown -R 1001:1001 /app
 
 # Configure entrypoint
-ENTRYPOINT [ "npm", "run", "test" ]
-
+ENTRYPOINT [ "npm", "test" ]

@@ -1,6 +1,5 @@
 {
   "name": "omp-logic",
-  "module": "index.ts",
   "scripts": {
     "check": "bun run lint",
     "lint": "eslint .",
@@ -23,5 +22,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
+    "winston": "^3.8.2"
   }
 }

@@ -1,4 +1,7 @@
 import { PaqueteFabricacion } from './paquete_fabricacion';
+import { AppInitialization } from '../logic/app-init';
+
+const logger = AppInitialization.instance().getLogger('models.orden_de_fabricacion');
 
 // Contiene uno o más paquetes de modelos y el número de unidades por modelo que deben fabricarse
 export class OrdenDeFabricacion {
@@ -27,5 +30,6 @@ export class OrdenDeFabricacion {
         this.endDate = p.endDate;
       }
     }
+    logger.debug('Created model' + JSON.stringify(this));
   }
 }

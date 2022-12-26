@@ -1,4 +1,7 @@
 import { Modelo } from './modelo';
+import { AppInitialization } from '../logic/app-init';
+
+const logger = AppInitialization.instance().getLogger('models.paquete_fabricacion');
 
 // Objeto valor intermedio asociando cada modelo con las unidades que deben fabricarse
 export class PaqueteFabricacion {
@@ -18,5 +21,6 @@ export class PaqueteFabricacion {
     this.cantidad = cantidad;
     this.startDate = startDate;
     this.endDate = endDate;
+    logger.debug('Created model' + JSON.stringify(this));
   }
 }

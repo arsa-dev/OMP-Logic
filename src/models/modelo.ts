@@ -1,4 +1,7 @@
+import { AppInitialization } from '../logic/app-init';
 import { Operacion } from './operacion';
+
+const logger = AppInitialization.instance().getLogger('models.modelo');
 
 // Conjunto de operaciones necesarias para la fabricación de un modelo concreto
 export class Modelo {
@@ -20,5 +23,6 @@ export class Modelo {
     operaciones.forEach((operacion) => {
       this.duracionEstimadaLineal += operacion.duracionEstimada;
     });
+    logger.debug('Created model' + JSON.stringify(this));
   }
 }
